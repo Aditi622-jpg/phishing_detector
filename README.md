@@ -15,10 +15,13 @@ A full‑stack web application built with **Flask** that detects phishing emails
   - **Risk scoring**: confidence levels and risk classification (High/Low)
 
 - **Email Header Analysis**
-  - Upload raw `.eml` files for forensic inspection
-  - Extracts From, To, Subject, Return‑Path, Message‑ID, Received hops
-  - Flags suspicious patterns (Return‑Path mismatch, too many hops, invalid sender format)
-
+   Parses and displays key headers (From, Return‑Path, Received, etc.).
+   Implements SPF, DKIM, and DMARC validation:
+   Flags spoofed senders (SPF fail).
+   Verifies email integrity (DKIM signature check).
+   Enforces domain policies (DMARC pass/fail).
+   Tested with fail, pass, and mixed case email samples to validate detection accuracy.
+  
 - **Blacklist System**
   - Automatically blocks repeat offenders
   - Prevents duplicate analysis
@@ -63,6 +66,7 @@ pip install joblib
 pip install reportlab
 pip install pdfkit 
 pip install email-validator
+pip install dkimpy
 # Install dependencies in windows cmd 
 
 # Train the model
