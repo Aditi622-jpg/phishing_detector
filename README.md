@@ -1,4 +1,5 @@
 Phisheild AI Detector
+
 A full‑stack web application built with Flask that detects phishing emails using rule‑based checks, machine learning models, and email header analysis. It provides both a web interface and a REST API for flexible integration.
 
 🚀 Features
@@ -81,3 +82,21 @@ Frontend: HTML, CSS, Bootstrap, Chart.js
 Security: OTP verification, session expiry, login attempt limits
 
 Reporting: ReportLab for PDF generation
+
+phishing-detector/
+│
+├── app.py                # Main Flask application
+├── models.py             # Database operations
+├── rules.py              # Rule-based phishing checks
+├── phishing_model.pkl    # Trained ML model
+├── vectorizer.pkl        # ML vectorizer
+├── templates/            # HTML templates
+│   ├── base.html
+│   ├── upload.html
+│   ├── result.html
+│   ├── results_headers.html
+│   ├── dashboard.html
+│   ├── report.html
+│   └── blacklist.html
+└── static/               # CSS, JS, images
+
