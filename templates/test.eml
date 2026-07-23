@@ -1,0 +1,12 @@
+From: support@fakebank.com
+Return-Path: admin@anotherdomain.com
+To: victim@example.com
+Subject: Account Locked - Immediate Action Required
+Message-ID: <12345@fakebank.com>
+Received: from suspicious-ip (unknown [192.0.2.1])
+Received: from relay.example.com (relay.example.com [203.0.113.5])
+Date: Thu, 23 Jul 2026 20:30:00 +0530
+
+This is a fake email pretending to be from your bank. Please click the link below to verify your account:
+
+http://fakebank-login.com
