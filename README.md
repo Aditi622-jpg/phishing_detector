@@ -1,102 +1,135 @@
-Phisheild AI Detector
+# 📧 Phisheild AI Detector
 
-A full‑stack web application built with Flask that detects phishing emails using rule‑based checks, machine learning models, and email header analysis. It provides both a web interface and a REST API for flexible integration.
+A full‑stack web application built with **Flask** that detects phishing emails using **rule‑based checks, machine learning models, and email header analysis**. It provides both a **web interface** and a **REST API** for flexible integration.
 
-🚀 Features
-User Authentication
+## **🚀 Features**
 
-Secure login with Gmail validation
+- **User Authentication**
+  - Secure login with Gmail validation
+  - OTP verification for added security
+  - Session expiry and login attempt limits
 
-OTP verification for added security
+- **Phishing Detection**
+  - **Rule‑based analysis**: keyword checks, suspicious links, sender validation
+  - **Machine learning analysis**: trained model + vectorizer for adaptive detection
+  - **Risk scoring**: confidence levels and risk classification (High/Low)
 
-Session expiry and login attempt limits
+- **Email Header Analysis**
+  - Upload raw `.eml` files for forensic inspection
+  - Extracts From, To, Subject, Return‑Path, Message‑ID, Received hops
+  - Flags suspicious patterns (Return‑Path mismatch, too many hops, invalid sender format)
 
-Phishing Detection
+- **Blacklist System**
+  - Automatically blocks repeat offenders
+  - Prevents duplicate analysis
+  - Manage blacklist entries via dashboard
 
-Rule‑based analysis: keyword checks, suspicious links, sender validation
+- **Dashboard & Reports**
+  - View statistics for rule‑based and ML detections
+  - Recent email analysis history
+  - Export phishing detection reports as PDF
 
-Machine learning analysis: trained model + vectorizer for adaptive detection
+- **REST API**
+  - `/api/analyze` endpoint for programmatic access
+  - Accepts JSON input (`email_text`, `sender`, `links`, `attachments`)
+  - Returns JSON verdicts (`verdict_rule`, `verdict_ml`, `confidence`, `risk_score`)
 
-Risk scoring: confidence levels and risk classification (High/Low)
+## **🖥️ User Interface**
 
-Email Header Analysis
+- **Upload Page**
+  - Two analysis options:
+    - Paste email text → Content analysis
+    - Upload `.eml` file → Header analysis
+- **Results Pages**
+  - `result.html`: verdicts, confidence, gauges, risk score
+  - `results_headers.html`: header breakdown + suspicious findings
+- **Dashboard**
+  - Stats, recent emails, blacklist management
+- **Reports**
+  - Generate PDF summaries of detection activity
+ **Lilly AI Q&A**
+  - Ask phishing‑related questions and get rule‑based answers
+  - 
+## **⚙️ Tech Stack**
+- **Backend**: Flask, SQLite, Joblib (ML model + vectorizer)  
+- **Frontend**: HTML, CSS, Bootstrap, Chart.js  
+- **Security**: OTP verification, session expiry, login attempt limits  
+- **Reporting**: ReportLab for PDF generation
 
-Upload raw .eml files for forensic inspection
+## Install Dependencies
+pip install flask
+pip install scikit-learn
+pip install joblib
+pip install reportlab
+pip install pdfkit 
+pip install email-validator
+# Install dependencies in windows cmd 
 
-Extracts From, To, Subject, Return‑Path, Message‑ID, Received hops
+# Train the model
+python train_model.py
+Result should be -1.0 Accuracy the model is trained 
 
-Flags suspicious patterns (Return‑Path mismatch, too many hops, invalid sender format)
+# Run project in windows CMD
+python app.py
 
-Blacklist System
+## Installation
+Install Google Chrome or Edge (Chromium‑based browser).
 
-Automatically blocks repeat offenders
+Go to the Chrome Web Store and search for “Talend API Tester”.
 
-Prevents duplicate analysis
+Direct link: Talend API Tester Extension (chrome.google.com in Bing)
 
-Manage blacklist entries via dashboard
+Click Add to Chrome → Add Extension.
 
-Dashboard & Reports
+Once installed, you’ll see the Talend API Tester icon in your browser toolbar.
 
-View statistics for rule‑based and ML detections
+## ⚙️ Using Talend API Tester with Your Project
+Open the extension from your browser toolbar.
 
-Recent email analysis history
+You’ll see a panel with:
 
-Export phishing detection reports as PDF
+Method dropdown (GET, POST, PUT, DELETE, etc.)
 
-REST API
+URL field
 
-/api/analyze endpoint for programmatic access
+Tabs for Headers and Body
 
-Accepts JSON input (email_text, sender, links, attachments)
+## Testing API Analyzer
+Set Method → POST
 
-Returns JSON verdicts (verdict_rule, verdict_ml, confidence, risk_score)
+Enter URL → http://127.0.0.1:5000/api/analyze
 
-🖥️ User Interface
-Upload Page
+Go to Headers → Add:
 
-Two analysis options:
+Code
+Content-Type: application/json
+Go to Body → Select application/json and paste:
 
-Paste email text → Content analysis
+json
+{
+  "email_text": "Your account has been locked. Click here urgently.",
+  "sender": "support@fakebank.com",
+  "links": ["http://fakebank-login.com"],
+  "attachments": []
+}
+Click Send.
 
-Upload .eml file → Header analysis
+Expected Response
 
-Results Pages
+{
+  "verdict_rule": "Phishing",
+  "verdict_ml": "Phishing",
+  "confidence": 92.5,
+  "risk_score": "High Risk"
+}
 
-result.html: verdicts, confidence, gauges, risk score
 
-results_headers.html: header breakdown + suspicious findings
+## Default Admin Login :
+Username: admin@gmail.com
+Password: AdminPass123!
 
-Dashboard
 
-Stats, recent emails, blacklist management
 
-Reports
 
-Generate PDF summaries of detection activity
 
-⚙️ Tech Stack
-Backend: Flask, SQLite, Joblib (ML model + vectorizer)
-
-Frontend: HTML, CSS, Bootstrap, Chart.js
-
-Security: OTP verification, session expiry, login attempt limits
-
-Reporting: ReportLab for PDF generation
-
-phishing-detector/
-│
-├── app.py                # Main Flask application
-├── models.py             # Database operations
-├── rules.py              # Rule-based phishing checks
-├── phishing_model.pkl    # Trained ML model
-├── vectorizer.pkl        # ML vectorizer
-├── templates/            # HTML templates
-│   ├── base.html
-│   ├── upload.html
-│   ├── result.html
-│   ├── results_headers.html
-│   ├── dashboard.html
-│   ├── report.html
-│   └── blacklist.html
-└── static/               # CSS, JS, images
 
