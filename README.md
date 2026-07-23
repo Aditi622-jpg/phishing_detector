@@ -1,4 +1,4 @@
-# 📧 Phisheild AI Detector
+# 📧 PhishSheild AI Detector
 
 A full‑stack web application built with **Flask** that detects phishing emails using **rule‑based checks, machine learning models, and email header analysis**. It provides both a **web interface** and a **REST API** for flexible integration.
 
