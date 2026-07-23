@@ -129,6 +129,35 @@ Username: admin@gmail.com
 Password: AdminPass123!
 
 
+## Future Scope
+Multi‑User Authentication  
+Add role‑based access (e.g., admin, analyst, regular user) with different permissions.
+
+Advanced OTP Delivery  
+Integrate real email/SMS OTP delivery instead of demo display, using services like Twilio or SendGrid.
+
+Improved Blacklist Management  
+Allow bulk import/export of blacklisted senders and automated syncing with external threat feeds.
+
+Enhanced Dashboard  
+Add interactive charts (e.g., phishing trends, detection accuracy) with filters and drill‑down analytics.
+
+Machine Learning Expansion  
+Train on larger datasets, add deep learning models, and support continuous retraining with new phishing samples.
+
+Email Header Analysis  
+Expand header checks with SPF/DKIM/DMARC validation and anomaly detection.
+
+API Integration  
+Provide REST/GraphQL endpoints for external systems to submit emails and fetch analysis results.
+
+Deployment & Scaling  
+Containerize with Docker, deploy to cloud (AWS/Azure/GCP), and add load balancing for high traffic.
+
+User Notifications  
+Add in‑app alerts or email notifications when suspicious activity is detected.
+
+
 
 
 
